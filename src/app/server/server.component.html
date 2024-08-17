@@ -1,0 +1,54 @@
+
+<h1>Server with id  {{serverId}}  and its status is {{serverStatus}}</h1>
+
+<h1>Server with id  {{serverId}}  and its status is {{getServerStatus()}}</h1>
+
+<hr>
+
+<h2>{{serverCreationStatus}}</h2>
+
+<button
+      [disabled]="!allowAddServer"
+      (click)="onCreateServer()" 
+      class="btn btn-primary">
+      Add server
+</button>
+<hr>
+
+<!-- <p *ngIf="isServerCreated; else noServer">Server One Created Successfully </p>
+
+<ng-template #noServer>
+    <p>No Server Created</p>
+</ng-template> -->
+
+@if(isServerCreated)
+{
+    <p [ngStyle]="serverStyles">Server One Created Successfully</p>
+}
+@else {
+    <p [ngClass]="serverClasses">No Server Created</p>
+}
+
+
+<hr>
+<input type="text" class="form-control" [(ngModel)]="serverName" />
+
+<h2>
+    {{serverName}}
+</h2>
+
+<hr>
+<!-- <p *ngFor="let server of servers">
+    {{server}}
+</p> -->
+
+@for(server of servers;track server)
+{
+    {{server}}
+}
+
+<!-- <button
+      disabled="{{!allowAddServer}}" 
+      class="btn btn-primary">
+      Add server interpolation
+</button> -->
