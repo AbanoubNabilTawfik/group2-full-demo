@@ -36,6 +36,52 @@
     @empty {
       <h1>No courses Avaliable</h1>
     } -->
-    <app-course-card *ngFor="let course of courses; let i=index ; let o=odd" (courseSelected)="onCardClick($event)" [course]="course"></app-course-card>
+
+
+    <!-- <div #container>
+      <app-course-card #cardRef1 (courseSelected)="onCardClick($event)" [course]="courses[0]">
+      </app-course-card>
+
+      <app-course-card #cardRef2 (courseSelected)="onCardClick($event)" [course]="courses[1]">
+      </app-course-card>
+    </div> -->
+
+    <!-- <app-course-card 
+                 *ngFor="let course of courses; 
+                 let i=index ; let o=odd" 
+                 (courseSelected)="onCardClick($event)" 
+                 [course]="course">
+        </app-course-card> -->
+
+    <div *ngIf="courses[0] as course">
+      <app-course-card appHighlight (toggleHighlight)="onToggle($event)" (courseSelected)="onCardClick($event)"
+        [course]="courses[0]">
+        <app-course-image [ImageUrl]="course.iconUrl"></app-course-image>
+        <br>
+        <div class="course-description">
+          {{course.longDescription}}
+        </div>
+        <br>
+        <h3 appBasicHighlight [defulatColor]="'blue'" [highlightColor]="'green'">Total lessons : 10</h3>
+      </app-course-card>
+    </div>
+
+  </div>
+</div>
+
+<div class="course-card">
+  Test Card
+</div>
+
+
+<hr>
+
+<div>
+  <div style="border:1px solid black; margin:10px">
+    <button>App component</button>
+  </div>
+  <div>
+    <app-comp1></app-comp1>
+    <app-comp2></app-comp2>
   </div>
 </div>

@@ -1,19 +1,19 @@
-<div class="col-md-4 mb-4">
-    <div class="card">
+<div class="col-md-6 mb-4">
+    <div class="course-card">
       <!-- <h5 class="card-title" [style.text-decoration]="'underline'">{{course.description}}</h5> -->
       <h5 class="card-title" [ngStyle]="{'text-decoration':'underline'}">{{course.description}}</h5>
 
-      @if(course.iconUrl)
+      <!-- @if(course.iconUrl)
       {
         <img [src]="course.iconUrl" class="card-img-top" alt="Product 3">
       }
       @else {
         <h1>No image found</h1>
-      }
+      } -->
+
+       <ng-content></ng-content>
        
-        <div class="card-body">
-            <p class="card-text">{{course.longDescription}}</p>
-        </div>
+        
 
      @switch (course.category) {
         @case ('BEGINNER') {
